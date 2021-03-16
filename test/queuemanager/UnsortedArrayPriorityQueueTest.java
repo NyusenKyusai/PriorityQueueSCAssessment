@@ -16,9 +16,9 @@ import static org.junit.Assert.*;
  *
  * @author Jonah
  */
-public class SortedArrayPriorityQueueTest {
+public class UnsortedArrayPriorityQueueTest {
     
-    public SortedArrayPriorityQueueTest() {
+    public UnsortedArrayPriorityQueueTest() {
     }
     
     @BeforeClass
@@ -38,7 +38,7 @@ public class SortedArrayPriorityQueueTest {
     }
 
     /**
-     * Test of head method, of class SortedArrayPriorityQueue.
+     * Test of head method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testHead1() throws Exception {
@@ -46,7 +46,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 5 different strings with different priorities to test
         Person person1 = new Person("Argentina");
         int priority1 = 7;
@@ -59,11 +59,11 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("Philippines");
         int priority5 = 139;
         
-        instance.add(person1, priority1);
-        instance.add(person2, priority2);
-        instance.add(person3, priority3);
         instance.add(person4, priority4);
+        instance.add(person2, priority2);
         instance.add(person5, priority5);
+        instance.add(person1, priority1);
+        instance.add(person3, priority3);
         
         // Creating the expected result string
         Object expResult = "Philippines";
@@ -74,7 +74,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of head method, of class SortedArrayPriorityQueue.
+     * Test of head method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testHead2() throws Exception {
@@ -82,7 +82,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 5 different strings with different priorities to test
         Person person1 = new Person("Australia");
         int priority1 = 9;
@@ -95,11 +95,11 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("Poland");
         int priority5 = 140;
         
-        instance.add(person1, priority1);
+        instance.add(person5, priority5);
         instance.add(person2, priority2);
         instance.add(person3, priority3);
         instance.add(person4, priority4);
-        instance.add(person5, priority5);
+        instance.add(person1, priority1);
         
         // Creating the expected result string
         Object expResult = "Poland";
@@ -110,7 +110,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of head method, of class SortedArrayPriorityQueue.
+     * Test of head method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testHead3() throws Exception {
@@ -118,7 +118,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 5 different strings with different priorities to test
         Person person1 = new Person("Bahamas");
         int priority1 = 12;
@@ -131,10 +131,10 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("United Kingdom");
         int priority5 = 186;
         
-        instance.add(person1, priority1);
-        instance.add(person2, priority2);
-        instance.add(person3, priority3);
         instance.add(person4, priority4);
+        instance.add(person2, priority2);
+        instance.add(person1, priority1);
+        instance.add(person3, priority3);
         instance.add(person5, priority5);
         
         // Creating the expected result string
@@ -146,7 +146,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of head method, of class SortedArrayPriorityQueue.
+     * Test of head method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testHead4() throws Exception {
@@ -154,7 +154,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 5 different strings with different priorities to test
         Person person1 = new Person("Belgium");
         int priority1 = 17;
@@ -168,10 +168,10 @@ public class SortedArrayPriorityQueueTest {
         int priority5 = 187;
         
         instance.add(person1, priority1);
-        instance.add(person2, priority2);
-        instance.add(person3, priority3);
-        instance.add(person4, priority4);
         instance.add(person5, priority5);
+        instance.add(person4, priority4);
+        instance.add(person3, priority3);
+        instance.add(person2, priority2);
         
         // Creating the expected result string
         Object expResult = "United States";
@@ -182,7 +182,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of head method, of class SortedArrayPriorityQueue.
+     * Test of head method, of class UnsortedArrayPriorityQueue.
      */
     @Test(expected = Exception.class)
     public void testHead5() throws Exception {
@@ -190,14 +190,14 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
                 
         // Getting the result that the method creates
         Object result = instance.head();
     }
 
     /**
-     * Test of add method, of class SortedArrayPriorityQueue.
+     * Test of add method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testAdd1() throws Exception {
@@ -205,7 +205,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 1 strings with priority to test
         Person person = new Person("Argentina");
         int priority = 7;
@@ -220,7 +220,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of add method, of class SortedArrayPriorityQueue.
+     * Test of add method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testAdd2() throws Exception {
@@ -228,15 +228,15 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 2 strings with priorities to test
         Person person1 = new Person("Australia");
         int priority1 = 9;
         Person person2 = new Person("Canada");
         int priority2 = 33;
         
-        instance.add(person1, priority1);
         instance.add(person2, priority2);
+        instance.add(person1, priority1);
         
         // Creating the expected result string
         Object expResult = "[(Canada, 33), (Australia, 9)]";
@@ -247,7 +247,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of add method, of class SortedArrayPriorityQueue.
+     * Test of add method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testAdd3() throws Exception {
@@ -255,7 +255,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 3 strings with priorities to test
         Person person1 = new Person("Bahamas");
         int priority1 = 12;
@@ -269,7 +269,7 @@ public class SortedArrayPriorityQueueTest {
         instance.add(person3, priority3);
         
         // Creating the expected result string
-        Object expResult = "[(Indonesia, 79), (China, 37), (Bahamas, 12)]";
+        Object expResult = "[(Bahamas, 12), (China, 37), (Indonesia, 79)]";
         // Getting the result that the method creates
         Object result = instance.toString();
         // Testing whether the expected result and result are equal to each other
@@ -277,7 +277,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of add method, of class SortedArrayPriorityQueue.
+     * Test of add method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testAdd4() throws Exception {
@@ -285,7 +285,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 4 different strings with different priorities to test
         Person person1 = new Person("Belgium");
         int priority1 = 17;
@@ -296,13 +296,13 @@ public class SortedArrayPriorityQueueTest {
         Person person4 = new Person("Norway");
         int priority4 = 130;
         
-        instance.add(person1, priority1);
         instance.add(person2, priority2);
-        instance.add(person3, priority3);
         instance.add(person4, priority4);
+        instance.add(person3, priority3);
+        instance.add(person1, priority1);
         
         // Creating the expected result string
-        Object expResult = "[(Norway, 130), (Japan, 86), (Denmark, 47), (Belgium, 17)]";
+        Object expResult = "[(Denmark, 47), (Norway, 130), (Japan, 86), (Belgium, 17)]";
         // Getting the result that the method creates
         Object result = instance.toString();
         // Testing whether the expected result and result are equal to each other
@@ -310,7 +310,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of add method, of class SortedArrayPriorityQueue.
+     * Test of add method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testAdd5() throws Exception {
@@ -318,7 +318,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 5 different strings with different priorities to test
         Person person1 = new Person("");
         int priority1 = 17;
@@ -331,63 +331,22 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("United States");
         int priority5 = -187;
         
-        instance.add(person1, priority1);
-        instance.add(person2, priority2);
-        instance.add(person3, priority3);
         instance.add(person4, priority4);
+        instance.add(person3, priority3);
+        instance.add(person1, priority1);
         instance.add(person5, priority5);
+        instance.add(person2, priority2);
         
         // Creating the expected result string
-        Object expResult = "[(Norway, 130), (Japan, 86), (Denmark, 47), (, 17), (United States, -187)]";
+        Object expResult = "[(Norway, 130), (Japan, 86), (, 17), (United States, -187), (Denmark, 47)]";
         // Getting the result that the method creates
         Object result = instance.toString();
         // Testing whether the expected result and result are equal to each other
         assertEquals(expResult, result);
     }
-    
-    /**
-     * Test of add method, of class SortedArrayPriorityQueue.
-     */
-    @Test(expected = Exception.class)
-    public void testAdd6() throws Exception {
-        System.out.println("add6");
-        //Creating an instance to test
-        PriorityQueue<Person> instance;
-        // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
-        // Adding 5 different strings with different priorities to test
-        Person person1 = new Person("Belgium");
-        int priority1 = 17;
-        Person person2 = new Person("Denmark");
-        int priority2 = 47;
-        Person person3 = new Person("Japan");
-        int priority3 = 86;
-        Person person4 = new Person("Norway");
-        int priority4 = 130;
-        Person person5 = new Person("United States");
-        int priority5 = -187;
-        Person person6 = new Person("Bahamas");
-        int priority6 = 12;
-        Person person7 = new Person("China");
-        int priority7 = 37;
-        Person person8 = new Person("Indonesia");
-        int priority8 = 79;
-        Person person9 = new Person("North Korea");
-        int priority9 = 128;
-        
-        instance.add(person1, priority1);
-        instance.add(person2, priority2);
-        instance.add(person3, priority3);
-        instance.add(person4, priority4);
-        instance.add(person5, priority5);
-        instance.add(person6, priority6);
-        instance.add(person7, priority7);
-        instance.add(person8, priority8);
-        instance.add(person9, priority9);
-    }
 
     /**
-     * Test of remove method, of class SortedArrayPriorityQueue.
+     * Test of remove method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testRemove1() throws Exception {
@@ -395,7 +354,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 5 different strings with different priorities to test
         Person person1 = new Person("Argentina");
         int priority1 = 7;
@@ -410,14 +369,14 @@ public class SortedArrayPriorityQueueTest {
         
         instance.add(person1, priority1);
         instance.add(person2, priority2);
-        instance.add(person3, priority3);
         instance.add(person4, priority4);
+        instance.add(person3, priority3);
         instance.add(person5, priority5);
         
         instance.remove();
         
         // Creating the expected result string
-        Object expResult = "[(Mexico, 111), (Germany, 65), (Brazil, 24), (Argentina, 7)]";
+        Object expResult = "[(Argentina, 7), (Brazil, 24), (Mexico, 111), (Germany, 65)]";
         // Getting the result that the method creates
         Object result = instance.toString();
         // Testing whether the expected result and result are equal to each other
@@ -425,7 +384,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of remove method, of class SortedArrayPriorityQueue.
+     * Test of remove method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testRemove2() throws Exception {
@@ -433,7 +392,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 5 different strings with different priorities to test
         Person person1 = new Person("Australia");
         int priority1 = 9;
@@ -446,13 +405,13 @@ public class SortedArrayPriorityQueueTest {
         
         instance.add(person1, priority1);
         instance.add(person3, priority3);
-        instance.add(person4, priority4);
         instance.add(person5, priority5);
+        instance.add(person4, priority4);
         
         instance.remove();
         
         // Creating the expected result string
-        Object expResult = "[(Netherlands, 123), (India, 78), (Australia, 9)]";
+        Object expResult = "[(Australia, 9), (India, 78), (Netherlands, 123)]";
         // Getting the result that the method creates
         Object result = instance.toString();
         // Testing whether the expected result and result are equal to each other
@@ -460,7 +419,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of remove method, of class SortedArrayPriorityQueue.
+     * Test of remove method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testRemove3() throws Exception {
@@ -468,7 +427,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 5 different strings with different priorities to test
         Person person1 = new Person("Bahamas");
         int priority1 = 12;
@@ -477,14 +436,14 @@ public class SortedArrayPriorityQueueTest {
         Person person4 = new Person("North Korea");
         int priority4 = 128;
         
+        instance.add(person4, priority4);
         instance.add(person1, priority1);
         instance.add(person3, priority3);
-        instance.add(person4, priority4);
         
         instance.remove();
         
         // Creating the expected result string
-        Object expResult = "[(Indonesia, 79), (Bahamas, 12)]";
+        Object expResult = "[(Bahamas, 12), (Indonesia, 79)]";
         // Getting the result that the method creates
         Object result = instance.toString();
         // Testing whether the expected result and result are equal to each other
@@ -492,7 +451,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of remove method, of class SortedArrayPriorityQueue.
+     * Test of remove method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testRemove4() throws Exception {
@@ -500,15 +459,15 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 5 different strings with different priorities to test
         Person person1 = new Person("Belgium");
         int priority1 = 17;
         Person person4 = new Person("Norway");
         int priority4 = 130;
         
-        instance.add(person1, priority1);
         instance.add(person4, priority4);
+        instance.add(person1, priority1);
         
         instance.remove();
         
@@ -521,7 +480,7 @@ public class SortedArrayPriorityQueueTest {
     } 
     
     /**
-     * Test of remove method, of class SortedArrayPriorityQueue.
+     * Test of remove method, of class UnsortedArrayPriorityQueue.
      */
     @Test(expected = Exception.class)
     public void testRemove5() throws Exception {
@@ -529,13 +488,13 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         
         instance.remove();
     } 
 
     /**
-     * Test of isEmpty method, of class SortedArrayPriorityQueue.
+     * Test of isEmpty method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testIsEmpty1() throws Exception {
@@ -543,7 +502,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 2 different strings with different priorities to test
         Person person1 = new Person("Bahamas");
         int priority1 = 12;
@@ -562,7 +521,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of isEmpty method, of class SortedArrayPriorityQueue.
+     * Test of isEmpty method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testIsEmpty2() {
@@ -570,7 +529,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         
         // Creating the expected result boolean
         boolean expResult = true;
@@ -581,7 +540,7 @@ public class SortedArrayPriorityQueueTest {
     }
 
     /**
-     * Test of toString method, of class SortedArrayPriorityQueue.
+     * Test of toString method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testToString1() throws Exception {
@@ -589,7 +548,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 5 different strings with different priorities to test
         Person person1 = new Person("Argentina");
         int priority1 = 7;
@@ -602,14 +561,14 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("Philippines");
         int priority5 = 139;
         
+        instance.add(person4, priority4);
         instance.add(person1, priority1);
         instance.add(person2, priority2);
-        instance.add(person3, priority3);
-        instance.add(person4, priority4);
         instance.add(person5, priority5);
+        instance.add(person3, priority3);
         
         // Creating the expected result string
-        Object expResult = "[(Philippines, 139), (Mexico, 111), (Germany, 65), (Brazil, 24), (Argentina, 7)]";
+        Object expResult = "[(Mexico, 111), (Argentina, 7), (Brazil, 24), (Philippines, 139), (Germany, 65)]";
         // Getting the result that the method creates
         Object result = instance.toString();
         // Testing whether the expected result and result are equal to each other
@@ -617,7 +576,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of toString method, of class SortedArrayPriorityQueue.
+     * Test of toString method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testToString2() throws Exception {
@@ -625,7 +584,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 5 different strings with different priorities to test
         Person person1 = new Person("Australia");
         int priority1 = 9;
@@ -638,14 +597,14 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("Poland");
         int priority5 = 140;
         
+        instance.add(person3, priority3);
+        instance.add(person5, priority5);
+        instance.add(person4, priority4);
         instance.add(person1, priority1);
         instance.add(person2, priority2);
-        instance.add(person3, priority3);
-        instance.add(person4, priority4);
-        instance.add(person5, priority5);
         
         // Creating the expected result string
-        Object expResult = "[(Poland, 140), (Netherlands, 123), (India, 78), (Canada, 33), (Australia, 9)]";
+        Object expResult = "[(India, 78), (Poland, 140), (Netherlands, 123), (Australia, 9), (Canada, 33)]";
         // Getting the result that the method creates
         Object result = instance.toString();
         // Testing whether the expected result and result are equal to each other
@@ -653,7 +612,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of toString method, of class SortedArrayPriorityQueue.
+     * Test of toString method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testToString3() throws Exception {
@@ -661,7 +620,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 5 different strings with different priorities to test
         Person person1 = new Person("Bahamas");
         int priority1 = 12;
@@ -674,14 +633,14 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("United Kingdom");
         int priority5 = 186;
         
-        instance.add(person1, priority1);
         instance.add(person2, priority2);
-        instance.add(person3, priority3);
         instance.add(person4, priority4);
         instance.add(person5, priority5);
+        instance.add(person3, priority3);
+        instance.add(person1, priority1);
         
         // Creating the expected result string
-        Object expResult = "[(United Kingdom, 186), (North Korea, 128), (Indonesia, 79), (China, 37), (Bahamas, 12)]";
+        Object expResult = "[(China, 37), (North Korea, 128), (United Kingdom, 186), (Indonesia, 79), (Bahamas, 12)]";
         // Getting the result that the method creates
         Object result = instance.toString();
         // Testing whether the expected result and result are equal to each other
@@ -689,7 +648,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of toString method, of class SortedArrayPriorityQueue.
+     * Test of toString method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testToString4() throws Exception {
@@ -697,7 +656,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         // Adding 5 different strings with different priorities to test
         Person person1 = new Person("Belgium");
         int priority1 = 17;
@@ -710,14 +669,14 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("United States");
         int priority5 = 187;
         
-        instance.add(person1, priority1);
         instance.add(person2, priority2);
-        instance.add(person3, priority3);
         instance.add(person4, priority4);
+        instance.add(person3, priority3);
+        instance.add(person1, priority1);
         instance.add(person5, priority5);
         
         // Creating the expected result string
-        Object expResult = "[(United States, 187), (Norway, 130), (Japan, 86), (Denmark, 47), (Belgium, 17)]";
+        Object expResult = "[(Denmark, 47), (Norway, 130), (Japan, 86), (Belgium, 17), (United States, 187)]";
         // Getting the result that the method creates
         Object result = instance.toString();
         // Testing whether the expected result and result are equal to each other
@@ -725,7 +684,7 @@ public class SortedArrayPriorityQueueTest {
     }
     
     /**
-     * Test of toString method, of class SortedArrayPriorityQueue.
+     * Test of toString method, of class UnsortedArrayPriorityQueue.
      */
     @Test
     public void testToString5() throws Exception {
@@ -733,7 +692,7 @@ public class SortedArrayPriorityQueueTest {
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
-        instance = new SortedArrayPriorityQueue<>(8);
+        instance = new UnsortedArrayPriorityQueue<>(8);
         
         // Creating the expected result string
         Object expResult = "[]";
@@ -742,4 +701,5 @@ public class SortedArrayPriorityQueueTest {
         // Testing whether the expected result and result are equal to each other
         assertEquals(expResult, result);
     }
+    
 }
