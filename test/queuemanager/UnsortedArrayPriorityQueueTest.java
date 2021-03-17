@@ -184,9 +184,45 @@ public class UnsortedArrayPriorityQueueTest {
     /**
      * Test of head method, of class UnsortedArrayPriorityQueue.
      */
-    @Test(expected = Exception.class)
+    @Test
     public void testHead5() throws Exception {
         System.out.println("head5");
+        //Creating an instance to test
+        PriorityQueue<Person> instance;
+        // Creating an array of size 8
+        instance = new UnsortedArrayPriorityQueue<>(8);
+        // Adding 5 different strings with different priorities to test
+        Person person1 = new Person("Belgium");
+        int priority1 = 17;
+        Person person2 = new Person("Denmark");
+        int priority2 = 47;
+        Person person3 = new Person("Japan");
+        int priority3 = 86;
+        Person person4 = new Person("Norway");
+        int priority4 = 130;
+        Person person5 = new Person("United States");
+        int priority5 = 187;
+        
+        instance.add(person3, priority3);
+        instance.add(person1, priority1);
+        instance.add(person2, priority2);
+        instance.add(person5, priority5);
+        instance.add(person4, priority4);
+        
+        // Creating the expected result string
+        Object expResult = "United States";
+        // Getting the result that the method creates
+        Object result = instance.head().getName();
+        // Testing whether the expected result and result are equal to each other
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of head method, of class UnsortedArrayPriorityQueue.
+     */
+    @Test(expected = Exception.class)
+    public void testHead6() throws Exception {
+        System.out.println("head6");
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
@@ -344,6 +380,42 @@ public class UnsortedArrayPriorityQueueTest {
         // Testing whether the expected result and result are equal to each other
         assertEquals(expResult, result);
     }
+    
+    /**
+     * Test of add method, of class UnsortedArrayPriorityQueue.
+     */
+    @Test
+    public void testAdd6() throws Exception {
+        System.out.println("add6");
+        //Creating an instance to test
+        PriorityQueue<Person> instance;
+        // Creating an array of size 8
+        instance = new UnsortedArrayPriorityQueue<>(8);
+        // Adding 5 different strings with different priorities to test
+        Person person1 = new Person("");
+        int priority1 = 17;
+        Person person2 = new Person("Denmark");
+        int priority2 = 47;
+        Person person3 = new Person("Japan");
+        int priority3 = 86;
+        Person person4 = new Person("Norway");
+        int priority4 = 130;
+        Person person5 = new Person("United States");
+        int priority5 = 187;
+        
+        instance.add(person1, priority1);
+        instance.add(person3, priority3);
+        instance.add(person5, priority5);
+        instance.add(person4, priority4);
+        instance.add(person2, priority2);
+        
+        // Creating the expected result string
+        Object expResult = "[(, 17), (Japan, 86), (United States, 187), (Norway, 130), (Denmark, 47)]";
+        // Getting the result that the method creates
+        Object result = instance.toString();
+        // Testing whether the expected result and result are equal to each other
+        assertEquals(expResult, result);
+    }
 
     /**
      * Test of remove method, of class UnsortedArrayPriorityQueue.
@@ -466,8 +538,8 @@ public class UnsortedArrayPriorityQueueTest {
         Person person4 = new Person("Norway");
         int priority4 = 130;
         
-        instance.add(person4, priority4);
         instance.add(person1, priority1);
+        instance.add(person4, priority4);
         
         instance.remove();
         
@@ -689,6 +761,42 @@ public class UnsortedArrayPriorityQueueTest {
     @Test
     public void testToString5() throws Exception {
         System.out.println("toString5");
+        //Creating an instance to test
+        PriorityQueue<Person> instance;
+        // Creating an array of size 8
+        instance = new UnsortedArrayPriorityQueue<>(8);
+        // Adding 5 different strings with different priorities to test
+        Person person1 = new Person("Belgium");
+        int priority1 = 17;
+        Person person2 = new Person("Denmark");
+        int priority2 = 47;
+        Person person3 = new Person("Japan");
+        int priority3 = 86;
+        Person person4 = new Person("Norway");
+        int priority4 = 130;
+        Person person5 = new Person("United States");
+        int priority5 = 187;
+        
+        instance.add(person5, priority5);
+        instance.add(person4, priority4);
+        instance.add(person1, priority1);
+        instance.add(person2, priority2);
+        instance.add(person3, priority3);
+        
+        // Creating the expected result string
+        Object expResult = "[(United States, 187), (Norway, 130), (Belgium, 17), (Denmark, 47), (Japan, 86)]";
+        // Getting the result that the method creates
+        Object result = instance.toString();
+        // Testing whether the expected result and result are equal to each other
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of toString method, of class UnsortedArrayPriorityQueue.
+     */
+    @Test
+    public void testToString6() throws Exception {
+        System.out.println("toString6");
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8

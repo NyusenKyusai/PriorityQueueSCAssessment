@@ -59,10 +59,10 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("Philippines");
         int priority5 = 139;
         
-        instance.add(person1, priority1);
         instance.add(person2, priority2);
-        instance.add(person3, priority3);
+        instance.add(person1, priority1);
         instance.add(person4, priority4);
+        instance.add(person3, priority3);
         instance.add(person5, priority5);
         
         // Creating the expected result string
@@ -96,10 +96,10 @@ public class SortedArrayPriorityQueueTest {
         int priority5 = 140;
         
         instance.add(person1, priority1);
-        instance.add(person2, priority2);
+        instance.add(person5, priority5);
         instance.add(person3, priority3);
         instance.add(person4, priority4);
-        instance.add(person5, priority5);
+        instance.add(person2, priority2);
         
         // Creating the expected result string
         Object expResult = "Poland";
@@ -131,11 +131,11 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("United Kingdom");
         int priority5 = 186;
         
-        instance.add(person1, priority1);
-        instance.add(person2, priority2);
         instance.add(person3, priority3);
+        instance.add(person1, priority1);
         instance.add(person4, priority4);
         instance.add(person5, priority5);
+        instance.add(person2, priority2);
         
         // Creating the expected result string
         Object expResult = "United Kingdom";
@@ -167,11 +167,47 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("United States");
         int priority5 = 187;
         
+        instance.add(person5, priority5);
         instance.add(person1, priority1);
-        instance.add(person2, priority2);
         instance.add(person3, priority3);
         instance.add(person4, priority4);
+        instance.add(person2, priority2);
+        
+        // Creating the expected result string
+        Object expResult = "United States";
+        // Getting the result that the method creates
+        Object result = instance.head().getName();
+        // Testing whether the expected result and result are equal to each other
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of head method, of class SortedArrayPriorityQueue.
+     */
+    @Test
+    public void testHead5() throws Exception {
+        System.out.println("head5");
+        //Creating an instance to test
+        PriorityQueue<Person> instance;
+        // Creating an array of size 8
+        instance = new SortedArrayPriorityQueue<>(8);
+        // Adding 5 different strings with different priorities to test
+        Person person1 = new Person("Belgium");
+        int priority1 = 17;
+        Person person2 = new Person("Denmark");
+        int priority2 = 47;
+        Person person3 = new Person("Japan");
+        int priority3 = 86;
+        Person person4 = new Person("Norway");
+        int priority4 = 130;
+        Person person5 = new Person("United States");
+        int priority5 = 187;
+        
+        instance.add(person4, priority4);
+        instance.add(person1, priority1);
         instance.add(person5, priority5);
+        instance.add(person3, priority3);
+        instance.add(person2, priority2);
         
         // Creating the expected result string
         Object expResult = "United States";
@@ -185,8 +221,8 @@ public class SortedArrayPriorityQueueTest {
      * Test of head method, of class SortedArrayPriorityQueue.
      */
     @Test(expected = Exception.class)
-    public void testHead5() throws Exception {
-        System.out.println("head5");
+    public void testHead6() throws Exception {
+        System.out.println("head6");
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
@@ -264,9 +300,9 @@ public class SortedArrayPriorityQueueTest {
         Person person3 = new Person("Indonesia");
         int priority3 = 79;
         
+        instance.add(person3, priority3);
         instance.add(person1, priority1);
         instance.add(person2, priority2);
-        instance.add(person3, priority3);
         
         // Creating the expected result string
         Object expResult = "[(Indonesia, 79), (China, 37), (Bahamas, 12)]";
@@ -296,10 +332,10 @@ public class SortedArrayPriorityQueueTest {
         Person person4 = new Person("Norway");
         int priority4 = 130;
         
-        instance.add(person1, priority1);
-        instance.add(person2, priority2);
-        instance.add(person3, priority3);
         instance.add(person4, priority4);
+        instance.add(person2, priority2);
+        instance.add(person1, priority1);
+        instance.add(person3, priority3);
         
         // Creating the expected result string
         Object expResult = "[(Norway, 130), (Japan, 86), (Denmark, 47), (Belgium, 17)]";
@@ -331,11 +367,11 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("United States");
         int priority5 = -187;
         
+        instance.add(person3, priority3);
+        instance.add(person5, priority5);
+        instance.add(person4, priority4);
         instance.add(person1, priority1);
         instance.add(person2, priority2);
-        instance.add(person3, priority3);
-        instance.add(person4, priority4);
-        instance.add(person5, priority5);
         
         // Creating the expected result string
         Object expResult = "[(Norway, 130), (Japan, 86), (Denmark, 47), (, 17), (United States, -187)]";
@@ -408,10 +444,10 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("Philippines");
         int priority5 = 139;
         
+        instance.add(person4, priority4);
+        instance.add(person3, priority3);
         instance.add(person1, priority1);
         instance.add(person2, priority2);
-        instance.add(person3, priority3);
-        instance.add(person4, priority4);
         instance.add(person5, priority5);
         
         instance.remove();
@@ -445,9 +481,9 @@ public class SortedArrayPriorityQueueTest {
         int priority5 = 140;
         
         instance.add(person1, priority1);
+        instance.add(person5, priority5);
         instance.add(person3, priority3);
         instance.add(person4, priority4);
-        instance.add(person5, priority5);
         
         instance.remove();
         
@@ -477,9 +513,9 @@ public class SortedArrayPriorityQueueTest {
         Person person4 = new Person("North Korea");
         int priority4 = 128;
         
-        instance.add(person1, priority1);
-        instance.add(person3, priority3);
         instance.add(person4, priority4);
+        instance.add(person3, priority3);
+        instance.add(person1, priority1);
         
         instance.remove();
         
@@ -507,8 +543,8 @@ public class SortedArrayPriorityQueueTest {
         Person person4 = new Person("Norway");
         int priority4 = 130;
         
-        instance.add(person1, priority1);
         instance.add(person4, priority4);
+        instance.add(person1, priority1);
         
         instance.remove();
         
@@ -602,11 +638,11 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("Philippines");
         int priority5 = 139;
         
-        instance.add(person1, priority1);
-        instance.add(person2, priority2);
         instance.add(person3, priority3);
         instance.add(person4, priority4);
+        instance.add(person2, priority2);
         instance.add(person5, priority5);
+        instance.add(person1, priority1);
         
         // Creating the expected result string
         Object expResult = "[(Philippines, 139), (Mexico, 111), (Germany, 65), (Brazil, 24), (Argentina, 7)]";
@@ -638,11 +674,11 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("Poland");
         int priority5 = 140;
         
-        instance.add(person1, priority1);
-        instance.add(person2, priority2);
-        instance.add(person3, priority3);
         instance.add(person4, priority4);
         instance.add(person5, priority5);
+        instance.add(person3, priority3);
+        instance.add(person2, priority2);
+        instance.add(person1, priority1);
         
         // Creating the expected result string
         Object expResult = "[(Poland, 140), (Netherlands, 123), (India, 78), (Canada, 33), (Australia, 9)]";
@@ -674,11 +710,11 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("United Kingdom");
         int priority5 = 186;
         
+        instance.add(person4, priority4);
         instance.add(person1, priority1);
+        instance.add(person5, priority5);
         instance.add(person2, priority2);
         instance.add(person3, priority3);
-        instance.add(person4, priority4);
-        instance.add(person5, priority5);
         
         // Creating the expected result string
         Object expResult = "[(United Kingdom, 186), (North Korea, 128), (Indonesia, 79), (China, 37), (Bahamas, 12)]";
@@ -710,11 +746,11 @@ public class SortedArrayPriorityQueueTest {
         Person person5 = new Person("United States");
         int priority5 = 187;
         
-        instance.add(person1, priority1);
-        instance.add(person2, priority2);
-        instance.add(person3, priority3);
-        instance.add(person4, priority4);
         instance.add(person5, priority5);
+        instance.add(person2, priority2);
+        instance.add(person4, priority4);
+        instance.add(person1, priority1);
+        instance.add(person3, priority3);
         
         // Creating the expected result string
         Object expResult = "[(United States, 187), (Norway, 130), (Japan, 86), (Denmark, 47), (Belgium, 17)]";
@@ -730,6 +766,42 @@ public class SortedArrayPriorityQueueTest {
     @Test
     public void testToString5() throws Exception {
         System.out.println("toString5");
+        //Creating an instance to test
+        PriorityQueue<Person> instance;
+        // Creating an array of size 8
+        instance = new SortedArrayPriorityQueue<>(8);
+        // Adding 5 different strings with different priorities to test
+        Person person1 = new Person("Belgium");
+        int priority1 = 17;
+        Person person2 = new Person("Denmark");
+        int priority2 = 47;
+        Person person3 = new Person("Japan");
+        int priority3 = 86;
+        Person person4 = new Person("Norway");
+        int priority4 = 130;
+        Person person5 = new Person("United States");
+        int priority5 = 187;
+        
+        instance.add(person1, priority1);
+        instance.add(person3, priority3);
+        instance.add(person2, priority2);
+        instance.add(person4, priority4);
+        instance.add(person5, priority5);
+        
+        // Creating the expected result string
+        Object expResult = "[(United States, 187), (Norway, 130), (Japan, 86), (Denmark, 47), (Belgium, 17)]";
+        // Getting the result that the method creates
+        Object result = instance.toString();
+        // Testing whether the expected result and result are equal to each other
+        assertEquals(expResult, result);
+    }
+    
+    /**
+     * Test of toString method, of class SortedArrayPriorityQueue.
+     */
+    @Test
+    public void testToString6() throws Exception {
+        System.out.println("toString6");
         //Creating an instance to test
         PriorityQueue<Person> instance;
         // Creating an array of size 8
