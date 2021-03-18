@@ -12,7 +12,7 @@ package queuemanager;
  * Linked priority queue that is sorted 
  * Works on higher number higher priority
 */
-public class SortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
+public class UnsortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
     // Global head variable that is a node
     Node head;
     
@@ -55,23 +55,11 @@ public class SortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
             // When it's empty, it sets the head of the array to the temp file and sets the next equal to nothing, as it is the only item
             (head) = temp;
             (head).next = null;
-        // This is the if statement that checks to see if the head has a lower priority than the new temp item
-        } else if ((head).nodeInfo.getPriority() < priority) {
-            // If it does, it sets the temp to the new item, and changes the pointer to the head item 
+        // This is the if statement that deals for the case when the head is not empty
+        } else {
+            // If there is a head, it pushes the head down one item, making the temp node the new head
             temp.next = head;
             (head) = temp;
-        // This is the case where the list is not empty, the head is still the item with the highest priority
-        } else {
-            // While loop that iterates through the linked list to find the correct insertion point
-            while (start.next != null && start.next.nodeInfo.getPriority() > priority) {
-                // Here we change the node until we find the insetrion point
-                start = start.next;
-            }
-            
-            // Here we set temps pointer to be equal to the pointer of start
-            temp.next = start.next;
-            // Here we set the pointer of start equal to temp, inserting temp in between start and start.next
-            start.next = temp;
         }
     }
 
@@ -84,8 +72,27 @@ public class SortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
             throw new QueueUnderflowException();
         // IF the array is not empty
         } else {
-            // It takes the head of the list and returns, the name, as it is a sorted list
-            return (head).nodeInfo.getItem();
+            // This creates a node variable called start, and sets head equal to the start of the list 
+            Node start = (head);
+            // This takes the priority of the head, as the current node is the head
+            int priority = (head).nodeInfo.getPriority();
+            // This variable takes holds Node with the value with the highest priority
+            Node highestPriority = (head);
+            
+            // While loop that iterates through the linked list to find the node with the highest priority
+            while (start != null) {
+                // If statement to find whether the current node has a higher priority than the saved priority
+                if (start.nodeInfo.getPriority() > priority) {
+                    // If it does, the highestPriority is changed to the current node and the priority is updated to the new node
+                    highestPriority = start;
+                    priority = start.nodeInfo.getPriority();
+                }
+                // Here we change the node until we find the highest priority node
+                start = start.next;
+            }
+            
+            // It takes node that was found and returns the item 
+            return highestPriority.nodeInfo.getItem();
         }
     }
 
@@ -98,10 +105,60 @@ public class SortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
             throw new QueueUnderflowException();
         // IF the array is not empty
         } else {
-            // This sets the temp node equal to the head
-            Node temp = head;
-            // THis takes the head, and makes it the nest item in the list
-            (head) = (head).next;
+            // This creates a node variable called start, and sets head equal to the start of the list 
+            Node start = (head);
+            // This saves the priority of the head to test against it
+            int priority = (head).nodeInfo.getPriority();
+            // This sets the highest priority node as the head, as it's the first we check
+            Node highestPriority = (head);
+            // This is a counter to find the position before the Node with the highest priority
+            // It starts at -1 because if it starts at 0, it will be the same position
+            // as the highest priority
+            int previousNodePosition = -1;
+            
+            // While loop that iterates through the linked list to find the correct removal point
+            while (start != null) {
+                // If statement to test the priority of the current node vs the saved priority
+                // To find the node with the higher priority
+                if (start.nodeInfo.getPriority() > priority) {
+                    // If the priority is higher, the highest priority item is changed
+                    // To the current node
+                    highestPriority = start;
+                    // The priority is updated to the current node priority
+                    priority = start.nodeInfo.getPriority();
+                    // Increments the position counter for the node before the
+                    // removed node
+                    previousNodePosition++;
+                }
+                // Here we change the node until we find the highest priority node
+                start = start.next;
+            }
+            
+            // This if statement deals with finding the node before the highest
+            // priority node
+            if (highestPriority == (head)){
+                // This sets the temp node equal to the head
+                Node temp = head;
+                // This takes the head, and makes it the nest item in the list
+                // Effectively removing the previous head node
+                (head) = (head).next;
+            // This case handles the case where the highest priority is not the head
+            } else {
+                // This is a place holder Node for the node before the highest 
+                // priority node that need to be removed
+                Node removalPoint = (head);
+                // This for loop iterates using the previousNodePosition counter
+                // to find the node that comes before the removed node
+                for (int i = 0; i < previousNodePosition; i++) {
+                    // This changes the removalPoint to the next node
+                    removalPoint = removalPoint.next;
+                }
+                // This takes the removed Node and makes it a temp node variable
+                Node temp = highestPriority;
+                // This takes the pointer of the previous Node and makes it point
+                // to the removed Node's pointee
+                removalPoint.next = highestPriority.next;
+            }
         }
     }
 
@@ -143,6 +200,4 @@ public class SortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
         // Returns the result string
         return result;
     }
-
-    
 }
