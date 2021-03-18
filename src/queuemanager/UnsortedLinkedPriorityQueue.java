@@ -111,24 +111,28 @@ public class UnsortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
             int priority = (head).nodeInfo.getPriority();
             // This sets the highest priority node as the head, as it's the first we check
             Node highestPriority = (head);
-            // This is a counter to find the position before the Node with the highest priority
-            // It starts at -1 because if it starts at 0, it will be the same position
-            // as the highest priority
-            int previousNodePosition = -1;
+            // This is a place holder Node for the node before the highest 
+            // priority node that need to be removed
+            Node removalPoint = (head);
             
             // While loop that iterates through the linked list to find the correct removal point
             while (start != null) {
-                // If statement to test the priority of the current node vs the saved priority
-                // To find the node with the higher priority
-                if (start.nodeInfo.getPriority() > priority) {
-                    // If the priority is higher, the highest priority item is changed
-                    // To the current node
-                    highestPriority = start;
-                    // The priority is updated to the current node priority
-                    priority = start.nodeInfo.getPriority();
-                    // Increments the position counter for the node before the
-                    // removed node
-                    previousNodePosition++;
+                // Without this if statement, the saved priority is compared to a null value,
+                // Crashing the program
+                if (start.next != null) {
+                    // If statement to test the priority of the current node vs the saved priority
+                    // To find the node with the higher priority
+                    if (start.next.nodeInfo.getPriority() > priority) {
+                        // If the priority is higher, the highest priority item is changed
+                        // To the current node
+                        highestPriority = start.next;
+                        // The priority is updated to the current node priority
+                        priority = start.next.nodeInfo.getPriority();
+                        // This changes the value of the removal point to the 
+                        // current node, as the next node has a higher priority
+                        // than the current node
+                        removalPoint = start;
+                    }
                 }
                 // Here we change the node until we find the highest priority node
                 start = start.next;
@@ -144,15 +148,6 @@ public class UnsortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
                 (head) = (head).next;
             // This case handles the case where the highest priority is not the head
             } else {
-                // This is a place holder Node for the node before the highest 
-                // priority node that need to be removed
-                Node removalPoint = (head);
-                // This for loop iterates using the previousNodePosition counter
-                // to find the node that comes before the removed node
-                for (int i = 0; i < previousNodePosition; i++) {
-                    // This changes the removalPoint to the next node
-                    removalPoint = removalPoint.next;
-                }
                 // This takes the removed Node and makes it a temp node variable
                 Node temp = highestPriority;
                 // This takes the pointer of the previous Node and makes it point
