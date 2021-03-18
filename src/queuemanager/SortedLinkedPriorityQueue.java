@@ -53,7 +53,7 @@ public class SortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
         // This creates the temp node, by calling the new node function and inserting the newly created object
         Node temp = newNode((PriorityItem<T>) info);
         // this checks to see whether the linked list is empty
-        if((head) == null) {
+        if(isEmpty()) {
             // When it's empty, it sets the head of the array to the temp file and sets the next equal to nothing, as it is the only item
             (head) = temp;
             (head).next = null;
