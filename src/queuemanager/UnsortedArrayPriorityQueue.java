@@ -46,7 +46,7 @@ public class UnsortedArrayPriorityQueue<T> implements PriorityQueue<T> {
         // Checks to see if the array is empty and throws UnderflowException
         if (isEmpty()) {
             throw new QueueUnderflowException();
-        // If it is not empy
+        // If it is not empty
         } else {
             // Innitialise the item and the priority with the first item in the array to use in the for loop
             T item = ((PriorityItem<T>) storage[0]).getItem();
@@ -120,7 +120,8 @@ public class UnsortedArrayPriorityQueue<T> implements PriorityQueue<T> {
     // Method to check is the array is empty
     @Override
     public boolean isEmpty() {
-        // tailIndex begins at -1 so this is an easy way to find it
+        // tailIndex begins at -1 so this is an easy way to find if the array
+        // is empty
         return tailIndex < 0;
     }
 
