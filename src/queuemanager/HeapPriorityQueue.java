@@ -6,7 +6,7 @@
 package queuemanager;
 
 /**
- *
+ * Implements code found at https://www.geeksforgeeks.org/priority-queue-using-binary-heap/
  * @author Jonah
  * @param <T>
  */
