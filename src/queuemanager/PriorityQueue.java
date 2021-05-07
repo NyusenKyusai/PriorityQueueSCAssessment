@@ -1,5 +1,7 @@
 package queuemanager;
 
+import java.util.Date;
+
 /**
  * Definition of the Priority Queue abstract data type.
  *
@@ -24,7 +26,7 @@ public interface PriorityQueue<T> {
      * @param priority
      * @throws QueueOverflowException
      */
-    public void add(T item, int priority) throws QueueOverflowException;
+    public void add(T item, long priority) throws QueueOverflowException;
 
     /**
      * The highest priority item stored. Throw an exception if it's empty.

@@ -1,0 +1,50 @@
+
+        Person person1 = new Person("Argentina");
+        int priority1 = 7;
+        Person person2 = new Person("Brazil");
+        int priority2 = 24;
+        Person person3 = new Person("Germany");
+        int priority3 = 65;
+        Person person4 = new Person("Mexico");
+        int priority4 = 111;
+        Person person5 = new Person("Philippines");
+        int priority5 = 139;
+        
+
+
+        Person person1 = new Person("Australia");
+        int priority1 = 9;
+        Person person2 = new Person("Canada");
+        int priority2 = 33;
+        Person person3 = new Person("India");
+        int priority3 = 78;
+        Person person4 = new Person("Netherlands");
+        int priority4 = 123;
+        Person person5 = new Person("Poland");
+        int priority5 = 140;
+        
+
+        Person person1 = new Person("Bahamas");
+        int priority1 = 12;
+        Person person2 = new Person("China");
+        int priority2 = 37;
+        Person person3 = new Person("Indonesia");
+        int priority3 = 79;
+        Person person4 = new Person("North Korea");
+        int priority4 = 128;
+        Person person5 = new Person("United Kingdom");
+        int priority5 = 186;
+        
+        
+        Person person1 = new Person("Belgium");
+        int priority1 = 17;
+        Person person2 = new Person("Denmark");
+        int priority2 = 47;
+        Person person3 = new Person("Japan");
+        int priority3 = 86;
+        Person person4 = new Person("Norway");
+        int priority4 = 130;
+        Person person5 = new Person("United States");
+        int priority5 = 187;
+        
+   

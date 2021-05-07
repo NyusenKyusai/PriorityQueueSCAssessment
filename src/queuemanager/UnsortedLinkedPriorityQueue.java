@@ -42,7 +42,7 @@ public class UnsortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
     
     // Function to add a new node into the linked list, takiung in the item and the priority
     @Override
-    public void add(T item, int priority) throws QueueOverflowException {
+    public void add(T item, long priority) throws QueueOverflowException {
         // This creates a node variable called start, and sets head equal to the start of the list 
         Node start = (head);
         // Creates an object called info which holds the item and priority information passed from the 
@@ -75,7 +75,7 @@ public class UnsortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
             // This creates a node variable called start, and sets head equal to the start of the list 
             Node start = (head);
             // This takes the priority of the head, as the current node is the head
-            int priority = (head).nodeInfo.getPriority();
+            long priority = (head).nodeInfo.getPriority();
             // This variable takes holds Node with the value with the highest priority
             Node highestPriority = (head);
             
@@ -108,7 +108,7 @@ public class UnsortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
             // This creates a node variable called start, and sets head equal to the start of the list 
             Node start = (head);
             // This saves the priority of the head to test against it
-            int priority = (head).nodeInfo.getPriority();
+            long priority = (head).nodeInfo.getPriority();
             // This sets the highest priority node as the head, as it's the first we check
             Node highestPriority = (head);
             // This is a place holder Node for the node before the highest 

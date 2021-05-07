@@ -136,7 +136,7 @@ public class HeapPriorityQueue<T> implements PriorityQueue<T> {
     
     // Function to add a new item to the heap
     @Override
-    public void add(T item, int priority) throws QueueOverflowException {
+    public void add(T item, long priority) throws QueueOverflowException {
         // Incrementing the tailIndex to reflect the added item
          tailIndex = tailIndex + 1;
          // Checking if the tailIndex is larger than the capacity

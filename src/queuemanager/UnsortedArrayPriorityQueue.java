@@ -50,7 +50,7 @@ public class UnsortedArrayPriorityQueue<T> implements PriorityQueue<T> {
         } else {
             // Innitialise the item and the priority with the first item in the array to use in the for loop
             T item = ((PriorityItem<T>) storage[0]).getItem();
-            int priority = ((PriorityItem<T>) storage[0]).getPriority();
+            long priority = ((PriorityItem<T>) storage[0]).getPriority();
             
             // For loop that iterates through the array to fint the item with the highest priority
             for (int i = 0; i <= tailIndex; i++) {
@@ -69,7 +69,7 @@ public class UnsortedArrayPriorityQueue<T> implements PriorityQueue<T> {
 
     // Function to add a new item to the array
     @Override
-    public void add(T item, int priority) throws QueueOverflowException {
+    public void add(T item, long priority) throws QueueOverflowException {
         // Incrementing the tailIndex to reflect the added item
         tailIndex = tailIndex + 1;
         // Checking if the tailIndex is larger than the capacity
@@ -95,7 +95,7 @@ public class UnsortedArrayPriorityQueue<T> implements PriorityQueue<T> {
         } else {
             // Initialising the position and setting the priority to the head of the array
             int position = 0;
-            int priority = ((PriorityItem<T>) storage[0]).getPriority();
+            long priority = ((PriorityItem<T>) storage[0]).getPriority();
             
             //For loop to iterate throughout the entire array
             for (int i = 1; i <= tailIndex; i++) {
