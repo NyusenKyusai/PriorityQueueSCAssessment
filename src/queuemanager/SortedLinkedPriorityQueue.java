@@ -5,6 +5,8 @@
  */
 package queuemanager;
 
+import java.util.Date;
+
 /**
  * Implements code found at https://www.geeksforgeeks.org/implementing-a-linked-list-in-java-using-class/
  * @author Jonah
@@ -36,13 +38,14 @@ public class SortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
         temp.nodeInfo = info;
         // As the temp Node is not inserted yet, it does not have a pointer yet
         temp.next = null;
+        
         // Returns the temp node to be used
         return temp;
     }
     
     // Function to add a new node into the linked list, takiung in the item and the priority
     @Override
-    public void add(T item, int priority) throws QueueOverflowException {
+    public void add(T item, long priority) throws QueueOverflowException {
         // This creates a node variable called start, and sets head equal to the start of the list 
         Node start = (head);
         // Creates an object called info which holds the item and priority information passed from the 
@@ -56,14 +59,14 @@ public class SortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
             (head) = temp;
             (head).next = null;
         // This is the if statement that checks to see if the head has a lower priority than the new temp item
-        } else if ((head).nodeInfo.getPriority() < priority) {
+        } else if ((head).nodeInfo.getPriority() > priority) {
             // If it does, it sets the temp to the new item, and changes the pointer to the head item 
             temp.next = head;
             (head) = temp;
         // This is the case where the list is not empty, the head is still the item with the highest priority
         } else {
             // While loop that iterates through the linked list to find the correct insertion point
-            while (start.next != null && start.next.nodeInfo.getPriority() > priority) {
+            while (start.next != null && start.next.nodeInfo.getPriority() < priority) {
                 // Here we change the node until we find the insetrion point
                 start = start.next;
             }
@@ -104,6 +107,93 @@ public class SortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
             (head) = (head).next;
         }
     }
+    
+    public int size() {
+        // Sets the current node as the head to iterate in the futre
+        Node currNode = (head);
+        // Creates a counter, as we use a while loop instead of a for loop
+        int i = 0;
+        
+        // While loop to iterate through the list
+        while (currNode != null) {
+            currNode = currNode.next;
+            i++;
+        }
+        
+        
+        return i;
+    }
+    
+    public Object[] returnArray() {
+        // Sets the current node as the head to iterate in the futre
+        Node currNode = (head);
+        // Creates a counter, as we use a while loop instead of a for loop
+        int i = 0;
+        
+        int size = size();
+        
+        Object[] result = new Object[size];
+        
+        // While loop to iterate through the list
+        while (currNode != null) {
+            result[i] = currNode.nodeInfo.getItem();
+            currNode = currNode.next;
+            i++;
+        }
+        // Returns the result string
+        return result;
+    }
+    
+    public Object deleteUsingPriority(long priority) throws QueueUnderflowException {
+        // Checks if the array is empty
+        if (isEmpty()) {
+            // If it is empty, it throws a list is emptty exception
+            throw new QueueUnderflowException();
+        // IF the array is not empty
+        } else {
+            Node start = (head);
+            
+            Node prevNode = (head);
+            
+            Node removalNode = (head);
+            
+            while (start != null) {
+                // Without this if statement, the saved priority is compared to a null value,
+                // Crashing the program
+                if (start.next != null) {
+                    // If statement to test the priority of the current node vs the saved priority
+                    // To find the node with the higher priority
+                    if (start.nodeInfo.getPriority() == priority) {
+                        removalNode = start;
+                    } else {
+                        prevNode = start;
+                    }
+                }
+                
+                start = start.next;
+            }
+            
+            // This if statement deals with finding the node before the highest
+            // priority node
+            if (removalNode == (head)){
+                // This sets the temp node equal to the head
+                Node temp = head;
+                // This takes the head, and makes it the nest item in the list
+                // Effectively removing the previous head node
+                (head) = (head).next;
+            // This case handles the case where the highest priority is not the head
+            } else {
+                // This takes the removed Node and makes it a temp node variable
+                Node temp = removalNode;
+                // This takes the pointer of the previous Node and makes it point
+                // to the removed Node's pointee
+                prevNode.next = removalNode.next;
+            }
+            
+            return ((PriorityItem<T>) removalNode.nodeInfo).getItem();
+        }
+        
+    }
 
     // Function to find if the array is empty
     @Override
@@ -143,6 +233,5 @@ public class SortedLinkedPriorityQueue<T> implements PriorityQueue<T> {
         // Returns the result string
         return result;
     }
-
     
 }
